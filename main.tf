@@ -2,10 +2,11 @@ provider "aws" {
   
 }
 
-resource "aws_iam_user" "demo_tf_user" {
-  name = "aws-demo-user"
-  
+resource "aws_s3_bucket" "my-first-buck" {
+  bucket = "test-cedec-b-3"
+
   tags = {
-    tag-key = "dev"
+    Name        = "cedec-b-3"
+    Environment = "DevOps-batch"
   }
 }
