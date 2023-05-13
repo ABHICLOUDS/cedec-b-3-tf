@@ -19,7 +19,6 @@ sudo echo "Welcome to my website $(hostname)" > /var/www/html/index.html
 sudo systemctl start httpd
 sudo systemctl enable httpd 
 EOF
-
    root_block_device{
       volume_size = 10
       volume_type = "gp2"
@@ -27,5 +26,9 @@ EOF
    tags = {
     Name = "tf-demo-instance"
   }
+}
+
+output "instance_ip_addr" {
+  value = aws_instance.my-inst.public_ip
 }
 
