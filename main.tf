@@ -10,6 +10,7 @@ resource "aws_instance" "my-inst" {
   key_name ="ohio-new"
   security_groups = ["default"]
   vpc_security_group_ids = [aws_security_group.this.id]
+  iam_instance_profile ="S3-fullacces-role"
 
    root_block_device{
       volume_size = 10
