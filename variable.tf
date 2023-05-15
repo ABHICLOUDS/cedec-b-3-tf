@@ -29,3 +29,8 @@ default={
     Dept="operation"
 }
 }
+
+variable "username" {
+  type = list(string)
+  default = ["tucker","annie","josh","sagar"]
+}
