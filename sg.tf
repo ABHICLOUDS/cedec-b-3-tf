@@ -1,6 +1,5 @@
 resource "aws_security_group" "this" {
   name        = "demo-sg"
-  vpc_id      = "	vpc-0a4aacd7651c2cb7d"
 
   ingress {
     description      = "TLS from VPC"
