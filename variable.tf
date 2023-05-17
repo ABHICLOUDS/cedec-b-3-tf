@@ -14,8 +14,8 @@ variable "pub_az"{
     type=string
 }
 
-variable "tags"{
-    type=(string)
+variable "name"{
+    type=string
 }
 
 variable "prv_cidir"{
