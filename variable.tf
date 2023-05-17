@@ -15,7 +15,7 @@ variable "pub_az"{
 }
 
 variable "tags"{
-    type=string
+    type=map(string)
 }
 
 variable "prv_cidir"{
