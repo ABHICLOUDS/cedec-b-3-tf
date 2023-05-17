@@ -26,3 +26,12 @@ variable "prv_az"{
     type=string
 }
 
+variable "ami"{
+    type=string
+}
+
+variable "instance_type"{
+    type=string
+}
+
+
