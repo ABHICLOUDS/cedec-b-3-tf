@@ -5,6 +5,7 @@ resource "aws_instance" "pub-1" {
   subnet_id =element(aws_subnet.public_subnet.*.id, count.index)
   key_name      = "ohio-new"
   vpc_security_group_ids      = [aws_security_group.this.id]
+  user_data = file("${path.module}/script.sh")
   tags = {
     Name = "${var.name}-pub-inst"
   }
