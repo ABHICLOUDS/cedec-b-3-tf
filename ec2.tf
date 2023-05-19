@@ -4,10 +4,10 @@ resource "aws_instance" "pub-1" {
   instance_type          = var.instance_type
   subnet_id              = element(aws_subnet.public_subnet.*.id, count.index)
   key_name               = "ohio-new"
-  vpc_security_group_ids = [aws_security_group.this.id]
+  vpc_security_group_ids = [aws_security_group.this.id,data.aws_security_group.manual-sg.id]
   user_data              = file("${path.module}/script.sh")
   tags = {
-    Name = "${var.name}-pub-inst"
+    Name = "${var.name}-pub-inst-${count.index + 1}"
   }
 }
 
@@ -21,6 +21,11 @@ resource "aws_instance" "prv-1" {
     Name = "${var.name}-prv-inst"
   }
 }
+
+data "aws_security_group" "manual-sg" {
+  id = sg-0436536a272eb5659
+}
+
 
 resource "aws_security_group" "this" {
   name        = "allow_tls"
