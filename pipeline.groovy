@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('pull') { 
             steps {
-                echo 'pull stage'
+                echo 'pull stage update '
             }
         }
         stage('build') { 
             steps {
-                echo 'build stage'
+                echo 'build stage update '
             }
         }
         stage('Deploy') { 
             steps {
-                 echo 'deploy stage'
+                 echo 'deploy stage update '
             }
         }
     }
