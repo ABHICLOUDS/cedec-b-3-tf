@@ -5,6 +5,7 @@ pipeline {
     stages {
         stage('Pull') { 
             steps {
+                sh 'sudo yum install git -y'
                 git branch: 'main', url: 'https://github.com/ABHICLOUDS/student-ui.git'
                 sh '''ls
                   pwd'''
@@ -12,7 +13,7 @@ pipeline {
         }
         stage('Build') { 
             steps {
-            sh 'mvn clean package'
+            echo 'build stage'
             }
         }
         stage('Deploy') { 
