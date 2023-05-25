@@ -1,5 +1,7 @@
 pipeline {
-    agent any 
+    agent {
+        node("slave-node")
+    } 
     stages {
         stage('Pull') { 
             steps {
@@ -15,7 +17,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                deploy adapters: [tomcat8(credentialsId: 'tomcat-creds-1', path: '', url: 'http://3.141.3.183:8080/')], contextPath: '/', war: '**/*.war'
+                echo 'deplyo stage'
             }
         }
     }
